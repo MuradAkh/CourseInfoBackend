@@ -9,8 +9,8 @@ func main() {
 	a := App{}
 	pwd, exists1 := os.LookupEnv("REDIS_PASSWORD")
 	addrs, exists2 := os.LookupEnv("REDIS_ENDPOINT")
-	port, noport := os.LookupEnv("PORT")
-	if noport || port == "" {
+	port, _ := os.LookupEnv("PORT")
+	if port == "" {
 		port = "8080"
 	}
 	if exists1 && exists2 {
